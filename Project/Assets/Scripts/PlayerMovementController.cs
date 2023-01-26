@@ -62,7 +62,16 @@ public class PlayerMovementController : MonoBehaviour
             Input.GetAxisRaw("Vertical")
         );
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (moveInput == Vector2.zero && isOnGround && !Input.GetKey(KeyCode.Space))
+        {
+            rb.constraints = RigidbodyConstraints.FreezePosition;
+        } 
+        else
+        {
+            rb.constraints = RigidbodyConstraints.None;
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && moveInput.y == 1)
         {
             speed = sprintSpeed;
         } 
@@ -78,12 +87,6 @@ public class PlayerMovementController : MonoBehaviour
         {
             transform.position = startPosition;
         }
-    }
-
-    void PlayRandomSound(AudioSource source, AudioClip[] sounds)
-    {
-        source.clip = sounds[Random.Range(0, sounds.Length)];
-        source.Play();
     }
 
     Vector3 GetMoveVelocity()
