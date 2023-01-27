@@ -573,6 +573,8 @@ MonoBehaviour:
     m_Bits: 8
   groundChecker: {fileID: 1981232529}
   groundCheckRadius: 0.1
+  liftForce: 1.5
+  maxLiftVelocity: 15
 --- !u!54 &224065352
 Rigidbody:
   m_ObjectHideFlags: 0
