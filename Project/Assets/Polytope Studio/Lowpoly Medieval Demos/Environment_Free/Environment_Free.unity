@@ -664,6 +664,8 @@ MonoBehaviour:
   groundCheckRadius: 0.1
   liftForce: 1.5
   maxLiftVelocity: 15
+  boostJumpCooldown: 1.5
+  boostForce: 10
 --- !u!54 &224065352
 Rigidbody:
   m_ObjectHideFlags: 0
