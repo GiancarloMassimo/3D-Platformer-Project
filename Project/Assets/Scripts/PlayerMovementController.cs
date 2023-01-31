@@ -27,15 +27,27 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField]
     float groundCheckRadius;
 
+    [SerializeField]
+    float liftForce;
+
+    [SerializeField]
+    float maxLiftVelocity;
+
+    float flightVelocity = 0;
+    bool isFlying;
+
     Vector2 moveInput;
     Rigidbody rb;
     bool isOnGround;
     bool knockedBack = false;
     Vector3 startPosition;
 
+    PlayerLookController playerLookController;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerLookController = GetComponent<PlayerLookController>();
         startPosition = transform.position;
     }
 
@@ -52,6 +64,12 @@ public class PlayerMovementController : MonoBehaviour
         if (!knockedBack)
         {
             rb.velocity = GetMoveVelocity();
+        }
+
+        if (isFlying)
+        {
+            flightVelocity += liftForce * Time.deltaTime;
+            rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y + flightVelocity, float.MinValue, maxLiftVelocity), rb.velocity.z);
         }
     }
 
@@ -91,6 +109,9 @@ public class PlayerMovementController : MonoBehaviour
 
     Vector3 GetMoveVelocity()
     {
+        if (!isOnGround)
+            return rb.velocity;
+
         Vector3 velocity = Vector3.zero;
         velocity += transform.right * moveInput.x;
         velocity += transform.forward * moveInput.y;
@@ -122,6 +143,19 @@ public class PlayerMovementController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && isOnGround)
         {
             Jump();
+        } 
+        else if (Input.GetKeyDown(KeyCode.Space) && !isOnGround)
+        {
+            rb.velocity = Vector3.zero;
+            rb.AddForce(playerLookController.GetForwardVector() * 20, ForceMode.Impulse);
+            flightVelocity = 0;
+            isFlying = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) || isOnGround)
+        {
+            flightVelocity = 0;
+            isFlying = false;
         }
     }
 

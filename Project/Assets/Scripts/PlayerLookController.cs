@@ -49,4 +49,9 @@ public class PlayerLookController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    public Vector3 GetForwardVector()
+    {
+        return playerCam.forward;
+    }
 }
