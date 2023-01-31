@@ -33,14 +33,6 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField]
     float maxLiftVelocity;
 
-    [SerializeField]
-    float boostJumpCooldown;
-
-    [SerializeField]
-    float boostForce;
-
-    float boostJumpTimer = 0;
-
     float flightVelocity = 0;
     bool isFlying;
 
@@ -65,8 +57,6 @@ public class PlayerMovementController : MonoBehaviour
         SetIsOnGround();
         GetJumpInput();
         CheckForFall();
-
-        boostJumpTimer -= Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -156,12 +146,8 @@ public class PlayerMovementController : MonoBehaviour
         } 
         else if (Input.GetKeyDown(KeyCode.Space) && !isOnGround)
         {
-            if (boostJumpTimer < 0)
-            {
-                rb.velocity = Vector3.zero;
-                rb.AddForce(playerLookController.GetForwardVector() * boostForce, ForceMode.Impulse);
-                boostJumpTimer = boostJumpCooldown;
-            }
+            rb.velocity = Vector3.zero;
+            rb.AddForce(playerLookController.GetForwardVector() * 20, ForceMode.Impulse);
             flightVelocity = 0;
             isFlying = true;
         }
