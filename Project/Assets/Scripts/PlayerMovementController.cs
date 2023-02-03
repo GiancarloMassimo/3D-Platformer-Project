@@ -40,6 +40,7 @@ public class PlayerMovementController : MonoBehaviour
     Rigidbody rb;
     bool isOnGround;
     bool knockedBack = false;
+    bool isControlEnabled = true;
     Vector3 startPosition;
 
     PlayerLookController playerLookController;
@@ -109,7 +110,7 @@ public class PlayerMovementController : MonoBehaviour
 
     Vector3 GetMoveVelocity()
     {
-        if (!isOnGround)
+        if (!isControlEnabled)
             return rb.velocity;
 
         Vector3 velocity = Vector3.zero;
@@ -130,6 +131,7 @@ public class PlayerMovementController : MonoBehaviour
         if (Physics.OverlapSphere(groundChecker.position, groundCheckRadius, groundLayer).Length > 0)
         {
             knockedBack = false;
+            isControlEnabled = true;
             isOnGround = true;
         }
         else
@@ -140,7 +142,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void GetJumpInput()
     {
-        if (Input.GetKey(KeyCode.Space) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             Jump();
         } 
@@ -150,6 +152,7 @@ public class PlayerMovementController : MonoBehaviour
             rb.AddForce(playerLookController.GetForwardVector() * 20, ForceMode.Impulse);
             flightVelocity = 0;
             isFlying = true;
+            isControlEnabled = false;
         }
 
         if (Input.GetKeyUp(KeyCode.Space) || isOnGround)
