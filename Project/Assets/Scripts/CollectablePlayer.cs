@@ -5,9 +5,9 @@ using UnityEngine;
 public class CollectablePlayer : MonoBehaviour
 {
 
-    GameObject collectable1;
-    GameObject collectable2;
-    GameObject collectable3;
+    [SerializeField] GameObject collectable1;
+    [SerializeField] GameObject collectable2;
+    [SerializeField] GameObject collectable3;
 
     public bool collect1 = false;
     public bool collect2 = false;
