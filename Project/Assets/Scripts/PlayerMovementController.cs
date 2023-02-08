@@ -166,4 +166,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         knockedBack = true;
     }
+    void OnTriggerEnter (Collider col)
+    {
+        if (col.GetComponent<Collider>().name == " Balls")
+        {
+            isOnGround = false;
+        }
+    }
 }
