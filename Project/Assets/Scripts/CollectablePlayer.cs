@@ -12,6 +12,7 @@ public class CollectablePlayer : MonoBehaviour
     public bool collect1 = false;
     public bool collect2 = false;
     public bool collect3 = false;
+    
     // Start is called before the first frame update
     void Start()
     {
