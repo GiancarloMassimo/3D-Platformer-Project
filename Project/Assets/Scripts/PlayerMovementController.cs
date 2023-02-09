@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
@@ -39,9 +41,10 @@ public class PlayerMovementController : MonoBehaviour
     Vector2 moveInput;
     Rigidbody rb;
     bool isOnGround;
-    bool knockedBack = false;
+    public bool knockedBack = false;
     bool isControlEnabled = true;
     Vector3 startPosition;
+    bool canResetKnockedBack = false;
 
     PlayerLookController playerLookController;
 
@@ -65,23 +68,32 @@ public class PlayerMovementController : MonoBehaviour
         if (!knockedBack)
         {
             rb.velocity = GetMoveVelocity();
-        }
 
-        if (isFlying)
-        {
-            flightVelocity += liftForce * Time.deltaTime;
-            rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y + flightVelocity, float.MinValue, maxLiftVelocity), rb.velocity.z);
-        }
+            if (moveInput == Vector2.zero && isOnGround && !Input.GetKey(KeyCode.Space))
+            {
+                if (knockedBack)
+                {
+                    print(knockedBack);
+                }
+                rb.constraints = RigidbodyConstraints.FreezePosition;
+            }
+            else
+            {
+                rb.constraints = RigidbodyConstraints.None;
+            }
 
-
-        if (!knockedBack && moveInput == Vector2.zero && isOnGround && !Input.GetKey(KeyCode.Space))
-        {
-            rb.constraints = RigidbodyConstraints.FreezePosition;
-        }
+            if (isFlying)
+            {
+                flightVelocity += liftForce * Time.deltaTime;
+                rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y + flightVelocity, float.MinValue, maxLiftVelocity), rb.velocity.z);
+            }
+        } 
         else
         {
             rb.constraints = RigidbodyConstraints.None;
         }
+
+
     }
 
     void GetMoveInput() { 
@@ -130,7 +142,10 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (Physics.OverlapSphere(groundChecker.position, groundCheckRadius, groundLayer).Length > 0)
         {
-            knockedBack = false;
+            if (canResetKnockedBack)
+            {
+                knockedBack = false;
+            }
             isControlEnabled = true;
             isOnGround = true;
         }
@@ -165,7 +180,15 @@ public class PlayerMovementController : MonoBehaviour
     public void KnockBack()
     {
         knockedBack = true;
+        canResetKnockedBack = false;
+        StartCoroutine(DelayKnockBackReset());
     }
+    IEnumerator DelayKnockBackReset()
+    {
+        yield return new WaitForSeconds(0.25f);
+        canResetKnockedBack = true;
+    }
+
     void OnTriggerEnter (Collider col)
     {
         if (col.GetComponent<Collider>().name == " Balls")

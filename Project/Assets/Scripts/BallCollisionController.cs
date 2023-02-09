@@ -23,9 +23,11 @@ public class BallCollisionController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            playerMovement.KnockBack();
+            print(playerMovement.knockedBack);
+            player.constraints = RigidbodyConstraints.None;
             player.AddForce(Vector3.up * liftForce, ForceMode.Impulse);
             player.AddForce(transform.right * knockbackMagnitude, ForceMode.Impulse);
-            playerMovement.KnockBack();
         }
     }
 }
