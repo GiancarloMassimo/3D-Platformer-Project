@@ -72,23 +72,23 @@ public class PlayerMovementController : MonoBehaviour
             flightVelocity += liftForce * Time.deltaTime;
             rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y + flightVelocity, float.MinValue, maxLiftVelocity), rb.velocity.z);
         }
-    }
 
-    void GetMoveInput()
-    {
-        moveInput = new Vector2(
-            Input.GetAxisRaw("Horizontal"),
-            Input.GetAxisRaw("Vertical")
-        );
 
-        if (moveInput == Vector2.zero && isOnGround && !Input.GetKey(KeyCode.Space))
+        if (!knockedBack && moveInput == Vector2.zero && isOnGround && !Input.GetKey(KeyCode.Space))
         {
             rb.constraints = RigidbodyConstraints.FreezePosition;
-        } 
+        }
         else
         {
             rb.constraints = RigidbodyConstraints.None;
         }
+    }
+
+    void GetMoveInput() { 
+        moveInput = new Vector2(
+            Input.GetAxisRaw("Horizontal"),
+            Input.GetAxisRaw("Vertical")
+        );
 
         if (Input.GetKey(KeyCode.LeftShift) && moveInput.y == 1)
         {
