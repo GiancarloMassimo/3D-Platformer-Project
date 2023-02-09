@@ -21,25 +21,44 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Robert
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ValidKeywords:
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - _EMISSION
-  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BASETEXTURE:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: f1d7c3a4b6bf2a14dbcbe31667f611ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BaseTexture:
+        m_Texture: {fileID: 2800000, guid: a195a893970f3ab4990bd06e18a0b308, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClearCoatMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DecalsTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -55,6 +74,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 2800000, guid: ec417c21d7eece848bbc0fe6562870b8, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -67,6 +90,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalMapTexture:
+        m_Texture: {fileID: 2800000, guid: a78adb8868cccbe4a92d9d81db916e6e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -76,6 +103,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopProjectionTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord2:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -93,37 +132,135 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - PixelSnap: 0
+    - _ANIMATEDECALEMISSIONONOFF: 1
+    - _ANIMATEOREEMISSIONONOFF: 0
     - _AlphaClip: 0
+    - _AlphaCutoff: 0.5
     - _Blend: 0
+    - _BlendOp: 0
     - _BumpScale: 1
+    - _CUSTOMCOLORSTINTING: 1
+    - _CUSTOMFLOWERSCOLOR: 0
+    - _CUSTOMWIND: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
+    - _ClearCoat: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _ColorMask: 15
+    - _ColorMode: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DECALEMISSIONONOFF: 1
+    - _DECALSONOFF: 0
+    - _DETAILTEXTUREONOFF: 0
+    - _DecalEmissionIntensity: 4
+    - _Depth: 0.3
+    - _DepthStrength: 0.3
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DetailTextureTiling: 0.5
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0.1
     - _DstBlend: 0
+    - _EnableExternalAlpha: 0
     - _EnvironmentReflections: 1
+    - _FlipbookBlending: 0
+    - _FlipbookMode: 0
+    - _FoamAmount: 1.5
+    - _FoamNoiseScale: 150
+    - _FoamPower: 0.5
+    - _GRADIENTONOFF: 0
     - _GlossMapScale: 1
     - _Glossiness: 0
+    - _GlossinessSource: 0
     - _GlossyReflections: 1
+    - _Gradient: 1
+    - _GradientPower: 1
+    - _LeavesThickness: 0.5
     - _Metallic: 0.762
+    - _Mettalic: 1
     - _Mode: 0
+    - _NormalMapWavesSpeed: 0.1
+    - _NormalMapsWavesSize: 5
+    - _OREEMISSIONONOFF: 0
     - _OcclusionStrength: 1
+    - _OreEmissionIntensity: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _SNOWONOFF: 0
+    - _SampleGI: 0
+    - _Shininess: 0
     - _Smoothness: 0.5
+    - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
+    - _Smootness: 1
+    - _SnowAmount: 1
+    - _SnowCoverage: 0.46
+    - _SnowFade: 0.32
+    - _SnowGradient: 0.83
+    - _SnowNoiseContrast: 0.002
+    - _SnowNoiseOnOff: 1
+    - _SnowNoiseScale: 87.23351
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
+    - _SpecSource: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _Surface: 0
+    - _TOPPROJECTIONONOFF: 0
+    - _TRANSLUCENCYONOFF: 1
+    - _TessValue: 16
+    - _TopProjectionTextureCoverage: 1
+    - _TopProjectionTextureTiling: 0.5
+    - _TransAmbient: 0.1
+    - _TransDirect: 0.9
+    - _TransNormal: 0.5
+    - _TransScattering: 2
+    - _TransShadow: 0.5
+    - _TransStrength: 1
     - _UVSec: 0
+    - _UseUIAlphaClip: 0
+    - _WINDMASKONOFF: 0
+    - _WaveAmplitude: 0.2
+    - _WaveSpeed: 0.5
+    - _WaveTile: 0.5
+    - _WindDensity: 0.2
+    - _WindMovement: 0.5
+    - _WindStrength: 0.3
     - _WorkflowMode: 1
+    - _WorldObjectGradient: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
+    - _CameraFadeParams: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DecakEmissionColor: {r: 1, g: 0.9248579, b: 0, a: 0}
+    - _DecalsColor: {r: 0, g: 0, b: 0, a: 0}
+    - _DeepColor: {r: 0.3114988, g: 0.5266015, b: 0.5283019, a: 0}
     - _EmissionColor: {r: 383.49805, g: 383.49805, b: 383.49805, a: 1}
+    - _FLOWERSCOLOR: {r: 1, g: 0, b: 0, a: 0}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 0.3066038, g: 1, b: 0.9145772, a: 0}
+    - _GroundColor: {r: 0.08490568, g: 0.05234205, b: 0.04846032, a: 1}
+    - _OreColor: {r: 1, g: 0.9248579, b: 0, a: 0}
+    - _OreEmissionColor: {r: 1, g: 0.9248579, b: 0, a: 0}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShallowColor: {r: 0.5238074, g: 0.7314408, b: 0.745283, a: 0}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _TopColor: {r: 0.4811321, g: 0.4036026, b: 0.2382966, a: 1}
   m_BuildTextureStacks: []
