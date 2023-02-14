@@ -737,9 +737,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hearts:
-  - {fileID: 43806069}
-  - {fileID: 421295941}
-  - {fileID: 368625296}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   numOfHearts: 3
   maxHealth: 100
 --- !u!1 &348962308
