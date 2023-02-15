@@ -37,6 +37,7 @@ public class PlayerMovementController : MonoBehaviour
 
     float flightVelocity = 0;
     bool isFlying;
+    bool SlowOr;
 
     Vector2 moveInput;
     Rigidbody rb;
@@ -45,6 +46,7 @@ public class PlayerMovementController : MonoBehaviour
     bool isControlEnabled = true;
     Vector3 startPosition;
     bool canResetKnockedBack = false;
+    bool stuck = false;
 
     PlayerLookController playerLookController;
 
@@ -54,17 +56,22 @@ public class PlayerMovementController : MonoBehaviour
         playerLookController = GetComponent<PlayerLookController>();
         startPosition = transform.position;
     }
-
+    
     void Update()
     {
         GetMoveInput();
         SetIsOnGround();
         GetJumpInput();
         CheckForFall();
+       
     }
+
+   
 
     private void FixedUpdate()
     {
+        if (stuck) return;
+
         if (!knockedBack)
         {
             rb.velocity = GetMoveVelocity();
@@ -92,7 +99,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.None;
         }
-
+        
 
     }
 
@@ -137,6 +144,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
     }
+    
 
     void SetIsOnGround()
     {
@@ -183,17 +191,16 @@ public class PlayerMovementController : MonoBehaviour
         canResetKnockedBack = false;
         StartCoroutine(DelayKnockBackReset());
     }
+
+    public void Stick()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        stuck = true;
+    }
+
     IEnumerator DelayKnockBackReset()
     {
         yield return new WaitForSeconds(0.25f);
         canResetKnockedBack = true;
-    }
-
-    void OnTriggerEnter (Collider col)
-    {
-        if (col.GetComponent<Collider>().name == " Balls")
-        {
-            isOnGround = false;
-        }
     }
 }
