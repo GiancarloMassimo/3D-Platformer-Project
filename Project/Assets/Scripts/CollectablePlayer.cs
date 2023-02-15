@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollectablePlayer : MonoBehaviour
 {
-
+    
     [SerializeField] GameObject collectable1;
     [SerializeField] GameObject collectable2;
     [SerializeField] GameObject collectable3;
@@ -16,6 +16,7 @@ public class CollectablePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         collectable1.SetActive(true);
         collectable2.SetActive(true);
         collectable3.SetActive(true);
@@ -28,19 +29,19 @@ public class CollectablePlayer : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other) {
+    void OnCollisionEnter(Collision other) {
         
-        if(other.gameObject.name.Equals("collectable1")){
+        if(other.gameObject.name.Equals("collectable1.gameObject.name")){
             collectable1.SetActive(false);
             collect1 = true;
         }
 
-         if(other.gameObject.name.Equals("collectable2")){
+        if(other.gameObject.name.Equals("collectable2.gameObject.name")){
             collectable2.SetActive(false);
             collect2 = true;
         }
 
-         if(other.gameObject.name.Equals("collectable3")){
+        if(other.gameObject.name.Equals("collectable3.gameObject.name")){
             collectable3.SetActive(false);
             collect3 = true;
         }
