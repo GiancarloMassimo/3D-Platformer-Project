@@ -17,6 +17,7 @@ public class BallCollisionController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
         playerMovement = player.GetComponent<PlayerMovementController>();
+        Physics.IgnoreLayerCollision(6, 6);
     }
 
     private void OnCollisionEnter(Collision collision)
