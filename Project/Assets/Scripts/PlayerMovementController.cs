@@ -36,14 +36,14 @@ public class PlayerMovementController : MonoBehaviour
     float maxLiftVelocity;
 
     float flightVelocity = 0;
-    bool isFlying;
+    public bool isFlying;
     bool SlowOr;
 
     Vector2 moveInput;
     Rigidbody rb;
     bool isOnGround;
     public bool knockedBack = false;
-    bool isControlEnabled = true;
+    public bool isControlEnabled = true;
     Vector3 startPosition;
     bool canResetKnockedBack = false;
     bool stuck = false;

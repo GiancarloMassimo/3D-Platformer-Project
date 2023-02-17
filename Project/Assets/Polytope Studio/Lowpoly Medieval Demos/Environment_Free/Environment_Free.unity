@@ -603,6 +603,7 @@ MonoBehaviour:
   speedLines: {fileID: 1631347040}
   minSpeed: 20
   particleRate: 25
+  volume: {fileID: 918591871}
 --- !u!1001 &316947469
 PrefabInstance:
   m_ObjectHideFlags: 0
