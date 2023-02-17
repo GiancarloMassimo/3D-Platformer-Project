@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHearts : MonoBehaviour
 {
     [SerializeField] GameObject[] hearts = new GameObject[3];
     [SerializeField] int numOfHearts = 3;
 
+    [SerializeField] GameObject eyeClose;
 
-     [SerializeField] int maxHealth = 100;
+    [SerializeField] GameObject player;
+
+
+     
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +33,8 @@ public class PlayerHearts : MonoBehaviour
             hearts[numOfHearts].SetActive(false);
         }
         if(numOfHearts <= 0){
-            //respawn
+            eyeClose.SetActive(true);
+            LoadScene(GetActiveScene());
         }
        
     }
@@ -42,7 +48,15 @@ public class PlayerHearts : MonoBehaviour
                 TakeDamage();
             }if(other.gameObject.name.Equals("Catherine")){
                 TakeDamage();
+            }if(other.gameObject.name.Equals("Paperman")){
+                TakeDamage();
             }
+    }
+
+    void restartPlayer(){
+        player.transform.position = new Vector3((float)31.21, (float)4.65, (float)69.47);
+        eyeClose.SetActive(false);
+
     }
 
     
