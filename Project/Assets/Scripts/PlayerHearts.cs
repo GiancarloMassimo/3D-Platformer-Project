@@ -34,7 +34,7 @@ public class PlayerHearts : MonoBehaviour
         }
         if(numOfHearts <= 0){
             eyeClose.SetActive(true);
-            LoadScene(GetActiveScene());
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
        
     }
