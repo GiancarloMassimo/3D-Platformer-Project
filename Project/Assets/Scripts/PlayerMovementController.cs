@@ -48,6 +48,9 @@ public class PlayerMovementController : MonoBehaviour
     bool canResetKnockedBack = false;
     bool stuck = false;
 
+    [SerializeField]
+    AudioSource flySound, landSound, impactSound;
+
     PlayerLookController playerLookController;
 
     void Start()
@@ -155,6 +158,12 @@ public class PlayerMovementController : MonoBehaviour
                 knockedBack = false;
             }
             isControlEnabled = true;
+
+            if (!isOnGround)
+            {
+                landSound.Play();
+            }
+
             isOnGround = true;
         }
         else
@@ -171,6 +180,7 @@ public class PlayerMovementController : MonoBehaviour
         } 
         else if (Input.GetKeyDown(KeyCode.Space) && !isOnGround)
         {
+            flySound.Play();
             rb.velocity = Vector3.zero;
             rb.AddForce(playerLookController.GetForwardVector() * 20, ForceMode.Impulse);
             flightVelocity = 0;
@@ -182,6 +192,15 @@ public class PlayerMovementController : MonoBehaviour
         {
             flightVelocity = 0;
             isFlying = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Obstacle"))
+        {
+            impactSound.Play();
+            transform.position = startPosition;
         }
     }
 
