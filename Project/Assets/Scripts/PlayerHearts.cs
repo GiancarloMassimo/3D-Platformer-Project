@@ -12,6 +12,8 @@ public class PlayerHearts : MonoBehaviour
 
     [SerializeField] GameObject player;
 
+    [SerializeField] GameObject[] obstacles;
+
 
      
     // Start is called before the first frame update
@@ -33,8 +35,7 @@ public class PlayerHearts : MonoBehaviour
             hearts[numOfHearts].SetActive(false);
         }
         if(numOfHearts <= 0){
-            eyeClose.SetActive(true);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //eyeClose.SetActive(true);
         }
        
     }
@@ -42,15 +43,12 @@ public class PlayerHearts : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         //If its a item damage
 
-            if(other.gameObject.name.Equals("Robert")){
-                TakeDamage();
-            }if(other.gameObject.name.Equals("Engie")){
-                TakeDamage();
-            }if(other.gameObject.name.Equals("Catherine")){
-                TakeDamage();
-            }if(other.gameObject.name.Equals("Paperman")){
-                TakeDamage();
+            for(int i = 0; i < obstacles.Length; i++){
+                if(other.gameObject.name.Equals(obstacles[i].gameObject.name)){
+                    TakeDamage();
+                }
             }
+            
     }
 
     void restartPlayer(){

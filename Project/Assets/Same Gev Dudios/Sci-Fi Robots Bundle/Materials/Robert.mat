@@ -45,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: f1d7c3a4b6bf2a14dbcbe31667f611ce, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.81, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseTexture:
         m_Texture: {fileID: 2800000, guid: a195a893970f3ab4990bd06e18a0b308, type: 3}
@@ -65,7 +65,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.25, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -85,7 +85,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: f1d7c3a4b6bf2a14dbcbe31667f611ce, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.81, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -252,7 +252,7 @@ Material:
     - _DecakEmissionColor: {r: 1, g: 0.9248579, b: 0, a: 0}
     - _DecalsColor: {r: 0, g: 0, b: 0, a: 0}
     - _DeepColor: {r: 0.3114988, g: 0.5266015, b: 0.5283019, a: 0}
-    - _EmissionColor: {r: 383.49805, g: 383.49805, b: 383.49805, a: 1}
+    - _EmissionColor: {r: 126.50718, g: 126.50718, b: 126.50718, a: 1}
     - _FLOWERSCOLOR: {r: 1, g: 0, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _FoamColor: {r: 0.3066038, g: 1, b: 0.9145772, a: 0}
