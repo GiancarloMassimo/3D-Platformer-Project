@@ -200,6 +200,7 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.collider.CompareTag("Obstacle"))
         {
             impactSound.Play();
+            stuck = false;
             transform.position = startPosition;
         }
     }
