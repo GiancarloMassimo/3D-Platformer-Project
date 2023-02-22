@@ -7,6 +7,7 @@ TagManager:
   - Big Ball
   - Balls
   - Slower
+  - Obstacle
   layers:
   - Default
   - TransparentFX
