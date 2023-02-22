@@ -13,6 +13,8 @@ public class Dialogue : MonoBehaviour
     public float endDelay;
     private int index = -1;
 
+    bool playingDialogue = false;
+
     void Update()
     {
         NextSentence();
@@ -28,14 +30,16 @@ public class Dialogue : MonoBehaviour
         yield return new WaitForSeconds(endDelay);
         text.text = "";
         textDisplay.SetActive(false);
+        playingDialogue = false;
     }
 
     public void NextSentence()
     {
-        if (Input.GetKeyDown(KeyCode.E) && index < content.Length - 1) 
+        if (Input.GetKeyDown(KeyCode.E) && index < content.Length - 1 && !playingDialogue) 
         {
             index++;
             text.text = "";
+            playingDialogue = true;
             StartCoroutine(Type());
         }
     }
