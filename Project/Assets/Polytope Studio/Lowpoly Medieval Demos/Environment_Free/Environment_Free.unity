@@ -1502,7 +1502,7 @@ MonoBehaviour:
     the ground. '
   - " Congrats, mercenary. You didn\u2019t let your group down, we look forward to
     your future contribution.  "
-  tSpeed: 0.1
+  tSpeed: 0.05
   endDelay: 2
 --- !u!4 &426084416
 Transform:
