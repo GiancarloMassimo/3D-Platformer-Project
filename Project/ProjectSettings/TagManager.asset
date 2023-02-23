@@ -8,6 +8,7 @@ TagManager:
   - Balls
   - Slower
   - Obstacle
+  - items
   layers:
   - Default
   - TransparentFX

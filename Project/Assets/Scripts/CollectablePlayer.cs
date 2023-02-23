@@ -30,19 +30,19 @@ public class CollectablePlayer : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision other) {
+    void OnTriggerEnter(Collider other) {
         
-        if(other.gameObject.name.Equals("collectable1.gameObject.name")){
+        if(other.gameObject.name.Equals("Potion1")){
             collectable1.SetActive(false);
             collect1 = true;
         }
 
-        if(other.gameObject.name.Equals("collectable2.gameObject.name")){
+        if(other.gameObject.name.Equals("wand05_red")){
             collectable2.SetActive(false);
             collect2 = true;
         }
 
-        if(other.gameObject.name.Equals("collectable3.gameObject.name")){
+        if(other.gameObject.name.Equals("orb05_red")){
             collectable3.SetActive(false);
             collect3 = true;
         }
