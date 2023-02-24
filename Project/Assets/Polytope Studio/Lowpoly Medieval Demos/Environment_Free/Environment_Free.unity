@@ -4091,19 +4091,18 @@ MonoBehaviour:
   - "Be aware of moving obstacles, you wouldn\u2019t want to touch them. "
   - 'Find the crystal wand in the base on the ground. '
   - 'Fly up! And collect a maroon potion bottle.  '
-  - "Woah, don\u2019t drop the bottle. Even if you are in danger, protect your items
-    at all costs. "
-  - 'You made it! Good job on collecting these two items. '
-  - "Now, you only have the orb left to collect. It\u2019s located in the highest
-    base. "
   - 'Tsk, you are taking so long. Let the lasers slice you, you could never complete
     this mission.  '
+  - "Woah, don\u2019t drop the bottle. Even if you are in danger, protect your items
+    at all costs. "
+  - "Now, you only have the orb left to collect. It\u2019s located in the highest
+    base. "
   - 'Finally! All three items have been collected. Now drawal back and return to
     the ground. '
   - " Congrats, mercenary. You didn\u2019t let your group down, we look forward to
     your future contribution.  "
   tSpeed: 0.05
-  endDelay: 2
+  endDelay: 3.5
 --- !u!4 &426084416
 Transform:
   m_ObjectHideFlags: 0
@@ -23747,7 +23746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -665, y: -374.10693}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2077738274
@@ -24177,7 +24176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hello there, welcome!
+  m_text: 'Hello there, welcome! Press E to navigate through the game.
 
 '
   m_isRightToLeft: 0
