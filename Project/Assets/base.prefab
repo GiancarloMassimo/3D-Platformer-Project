@@ -6498,7 +6498,7 @@ GameObject:
   - component: {fileID: 2041771678551870771}
   - component: {fileID: 2041771678556386759}
   m_Layer: 0
-  m_Name: a
+  m_Name: light_corner_1_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33803,7 +33803,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4982051781642251452, guid: e3cca28b8a2e20a43ab41a8f67fe0aae, type: 3}
       propertyPath: m_Name
-      value: a
+      value: light_corner_1_blue
       objectReference: {fileID: 0}
     - target: {fileID: 4982051781642423706, guid: e3cca28b8a2e20a43ab41a8f67fe0aae, type: 3}
       propertyPath: m_RootOrder
