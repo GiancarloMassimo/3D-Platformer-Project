@@ -53,6 +53,8 @@ public class PlayerMovementController : MonoBehaviour
 
     PlayerLookController playerLookController;
 
+    float timeBetweenLastW = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -62,6 +64,8 @@ public class PlayerMovementController : MonoBehaviour
     
     void Update()
     {
+        timeBetweenLastW += Time.deltaTime;
+
         GetMoveInput();
         SetIsOnGround();
         GetJumpInput();
@@ -112,11 +116,23 @@ public class PlayerMovementController : MonoBehaviour
             Input.GetAxisRaw("Vertical")
         );
 
-        if (Input.GetKey(KeyCode.LeftShift) && moveInput.y == 1)
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            speed = sprintSpeed;
-        } 
-        else
+            print(timeBetweenLastW);
+
+            if (timeBetweenLastW < 0.25f)
+            {
+                speed = sprintSpeed;
+            }
+            else
+            {
+                speed = walkSpeed;
+            }
+
+            timeBetweenLastW = 0;
+        }
+
+        if (moveInput.y != 1)
         {
             speed = walkSpeed;
         }
