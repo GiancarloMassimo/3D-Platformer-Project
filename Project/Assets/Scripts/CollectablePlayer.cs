@@ -8,6 +8,9 @@ public class CollectablePlayer : MonoBehaviour
     [SerializeField] GameObject collectable1;
     [SerializeField] GameObject collectable2;
     [SerializeField] GameObject collectable3;
+    [SerializeField] GameObject c;
+    [SerializeField] GameObject c1;
+    [SerializeField] GameObject c2;
     [SerializeField] GameObject[] collectable;
 
     public bool collect1 = false;
@@ -21,6 +24,9 @@ public class CollectablePlayer : MonoBehaviour
         collectable1.SetActive(true);
         collectable2.SetActive(true);
         collectable3.SetActive(true);
+        c.SetActive(false);
+        c1.SetActive(false);
+        c2.SetActive(false);
 
     }
 
@@ -51,6 +57,12 @@ public class CollectablePlayer : MonoBehaviour
             if(other.gameObject.name.Equals(collectable[i].gameObject.name)){
                 collectable[i].SetActive(false);
             }
+        }
+
+        if(other.gameObject.name.Equals("cube") && collect1 && collect2 && collect3){
+            c.SetActive(true);
+            c1.SetActive(true);
+            c2.SetActive(true);
         }
 
     }
