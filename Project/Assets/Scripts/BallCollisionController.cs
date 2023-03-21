@@ -30,5 +30,6 @@ public class BallCollisionController : MonoBehaviour
             player.AddForce(Vector3.up * liftForce, ForceMode.Impulse);
             player.AddForce(transform.right * knockbackMagnitude, ForceMode.Impulse);
         }
+
     }
 }

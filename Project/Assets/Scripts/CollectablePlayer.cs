@@ -29,28 +29,24 @@ public class CollectablePlayer : MonoBehaviour
         c2.SetActive(false);
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other) {
         
         if(other.gameObject.name.Equals("Potion1")){
             collectable1.SetActive(false);
             collect1 = true;
+            Dialogue.instance.TriggerDialogue(new string[] { "1", "2", "3" });
         }
 
         if(other.gameObject.name.Equals("wand05_red")){
             collectable2.SetActive(false);
             collect2 = true;
+            Dialogue.instance.TriggerDialogue(new string[] {"good job on finding the wand", "Now go pick up the potion off the table on the second building"}) ;
         }
 
         if(other.gameObject.name.Equals("orb05_red")){
             collectable3.SetActive(false);
             collect3 = true;
+            Dialogue.instance.TriggerDialogue(new string[] { "1","2","3" });
         }
 
         for(int i = 0; i < collectable.Length; i++){
