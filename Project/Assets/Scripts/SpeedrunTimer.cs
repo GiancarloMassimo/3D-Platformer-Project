@@ -70,4 +70,9 @@ public class SpeedrunTimer : MonoBehaviour
         stop = true;
         gameOver = true;
     }
+
+    public float GetTimeFloat()
+    {
+        return timer;
+    }
 }
