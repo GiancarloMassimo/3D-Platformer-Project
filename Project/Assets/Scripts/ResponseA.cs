@@ -4,15 +4,13 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 
-public class Dialogue : MonoBehaviour
+public class ResponseA : MonoBehaviour
 {
-    public static Dialogue instance;
 
     public GameObject textDisplay;
     public TMP_Text text;
     public string[] content;
     public float tSpeed;
-    public float endDelay;
     private int index = -1;
 
     private string[] dialogueTriggrTest =
@@ -26,17 +24,7 @@ public class Dialogue : MonoBehaviour
 
     bool playingDialogue = false;
 
-    private void Start()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        } 
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+  
 
     void Update()
     {
@@ -55,10 +43,7 @@ public class Dialogue : MonoBehaviour
             text.text += letter;
             yield return new WaitForSeconds(tSpeed);
         }
-        yield return new WaitForSeconds(endDelay);
-        text.text = "";
-        textDisplay.SetActive(false);
-        playingDialogue = false;
+  
 
         if (index == content.Length - 1)
         {
@@ -68,12 +53,13 @@ public class Dialogue : MonoBehaviour
 
     public void NextSentence()
     {
-        if (Input.GetKeyDown(KeyCode.E) && index < content.Length - 1 && !playingDialogue) 
+        if (Input.GetKeyDown(KeyCode.E) && index < content.Length - 1 && !playingDialogue)
         {
             index++;
             text.text = "";
             playingDialogue = true;
             StartCoroutine(Type());
+            textDisplay.SetActive(false);
         }
     }
 
@@ -90,5 +76,6 @@ public class Dialogue : MonoBehaviour
         NextSentence();
     }
 }
+
 
 

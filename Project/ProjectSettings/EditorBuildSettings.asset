@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Environment_Free 1.unity
     guid: 13177d033b47cb14d8d1958756eb5500
   - enabled: 1
-    path: Assets/Scenes/Environment_Free.unity
+    path: Assets/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Environment_Free.unity
     guid: c732593fe76e5a84197f9cd13963f706
   - enabled: 0
     path: 
