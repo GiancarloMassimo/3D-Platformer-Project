@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollectablePlayer : MonoBehaviour
 {
-    
+    [SerializeField] GameObject winScreen;
     [SerializeField] GameObject collectable1;
     [SerializeField] GameObject collectable2;
     [SerializeField] GameObject collectable3;
@@ -33,7 +33,12 @@ public class CollectablePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (collect1 && collect2 && collect3)
+        {
+            SpeedrunTimer.instance.Stop();
+            PlayerPrefs.SetString("FastestTime", SpeedrunTimer.instance.GetTime());
+            winScreen.SetActive(true);
+        }
     }
 
     void OnTriggerEnter(Collider other) {

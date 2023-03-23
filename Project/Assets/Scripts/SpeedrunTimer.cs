@@ -6,15 +6,28 @@ using TMPro;
 
 public class SpeedrunTimer : MonoBehaviour
 {
+    public static SpeedrunTimer instance;
+
     float timer = 0;
     bool stop = false;
+    bool gameOver = false;
+
+    [SerializeField]
+    GameObject timerPanel;
 
     [SerializeField]
     TMP_Text text;
 
-    void Start()
+    private void Start()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
@@ -35,10 +48,26 @@ public class SpeedrunTimer : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && !gameOver)
         {
             stop = !stop;
         }
 
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            timerPanel.SetActive(!timerPanel.active);
+        }
+
+    }
+
+    public string GetTime()
+    {
+        return text.text;
+    }
+
+    public void Stop()
+    {
+        stop = true;
+        gameOver = true;
     }
 }
