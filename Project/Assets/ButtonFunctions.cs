@@ -21,4 +21,19 @@ public class ButtonFunctions : MonoBehaviour
     {
         SceneManager.LoadScene(index);
     }
+
+    public void SetQualityLevel(int index)
+    {
+        QualitySettings.SetQualityLevel(index, true);
+    }
+
+    public void SetSoundVolume(float volume)
+    {
+        GameSettings.soundVolume = volume;
+    }
+    public void SetMusicVolume(float volume)
+    {
+        GameSettings.musicVolume = volume;
+    }
+
 }

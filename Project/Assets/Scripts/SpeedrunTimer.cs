@@ -58,6 +58,10 @@ public class SpeedrunTimer : MonoBehaviour
             timerPanel.SetActive(!timerPanel.active);
         }
 
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public string GetTime()

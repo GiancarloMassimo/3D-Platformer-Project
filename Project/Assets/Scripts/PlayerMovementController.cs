@@ -60,6 +60,7 @@ public class PlayerMovementController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerLookController = GetComponent<PlayerLookController>();
         startPosition = transform.position;
+        flySound.volume = GameSettings.soundVolume;
     }
     
     void Update()
@@ -85,10 +86,6 @@ public class PlayerMovementController : MonoBehaviour
 
             if (moveInput == Vector2.zero && isOnGround && !Input.GetKey(KeyCode.Space))
             {
-                if (knockedBack)
-                {
-                    print(knockedBack);
-                }
                 rb.constraints = RigidbodyConstraints.FreezePosition;
             }
             else
@@ -118,8 +115,6 @@ public class PlayerMovementController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            print(timeBetweenLastW);
-
             if (timeBetweenLastW < 0.25f)
             {
                 speed = sprintSpeed;

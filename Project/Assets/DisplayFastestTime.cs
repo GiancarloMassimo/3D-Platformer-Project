@@ -10,6 +10,6 @@ public class DisplayFastestTime : MonoBehaviour
     void Start()
     {
         text = GetComponent<TMP_Text>();
-        text.text = PlayerPrefs.GetString("Fastest Time", "No Time Recorded");
+        text.text = PlayerPrefs.GetString("FastestTime", "No Time Recorded");
     }
 }
