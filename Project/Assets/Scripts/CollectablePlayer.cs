@@ -36,7 +36,11 @@ public class CollectablePlayer : MonoBehaviour
         if (collect1 && collect2 && collect3)
         {
             SpeedrunTimer.instance.Stop();
-            PlayerPrefs.SetString("FastestTime", SpeedrunTimer.instance.GetTime());
+            if (SpeedrunTimer.instance.GetTimeFloat() < PlayerPrefs.GetFloat("FastestTimeFloat", float.MaxValue))
+            {
+                PlayerPrefs.SetString("FastestTime", SpeedrunTimer.instance.GetTime());
+                PlayerPrefs.SetFloat("FastestTimeFloat", SpeedrunTimer.instance.GetTimeFloat());
+            }
             winScreen.SetActive(true);
         }
     }

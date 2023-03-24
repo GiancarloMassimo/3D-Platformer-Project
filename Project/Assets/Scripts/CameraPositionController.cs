@@ -15,7 +15,8 @@ public class CameraPositionController : MonoBehaviour
 
     private void Start()
     {
-        cameraPosition = thirdPersonCameraPosition;        
+        cameraPosition = thirdPersonCameraPosition;
+        GetComponent<AudioSource>().volume = GameSettings.musicVolume;
     }
 
     void Update()

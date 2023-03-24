@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
@@ -16,8 +17,23 @@ public class ButtonFunctions : MonoBehaviour
         
     }
 
-    public void ButtonClick()
+    public void LoadScene(int index)
     {
-        print("Hello");
+        SceneManager.LoadScene(index);
     }
+
+    public void SetQualityLevel(int index)
+    {
+        QualitySettings.SetQualityLevel(index, true);
+    }
+
+    public void SetSoundVolume(float volume)
+    {
+        GameSettings.soundVolume = volume;
+    }
+    public void SetMusicVolume(float volume)
+    {
+        GameSettings.musicVolume = volume;
+    }
+
 }
